@@ -20,6 +20,16 @@ format: ## Check and fix format using Spotless
 test: ## Run all the tests
 	./gradlew test
 
+.PHONY: test-coverage
+test-coverage: ## Run test coverage with JaCoCo
+	./gradlew build jacocoTestReport
+	@echo
+	@echo "You can see the resulting test coverage report generated under ${PWD}/build/reports/jacoco/test/html/index.html"
+
+.PHONY: open-test-coverage
+open-test-coverage: ## Open the existing test coverage report
+	@open build/reports/jacoco/test/html/index.html
+
 .PHONY: lock-dependencies
 lock-dependencies: ## Lock the dependencies
 	./gradlew dependencies --write-locks

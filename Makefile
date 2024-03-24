@@ -12,6 +12,10 @@ local-setup: ## Set up the local environment (e.g. install git hooks)
 build: ## Build
 	./gradlew build
 
+.PHONY: format
+format: ## Check and fix format using Spotless
+	./scripts/check-and-fix-format.sh
+
 .PHONY: test
 test: ## Run all the tests
 	./gradlew test
@@ -21,7 +25,7 @@ lock-dependencies: ## Lock the dependencies
 	./gradlew dependencies --write-locks
 
 .PHONY: pre-commit
-pre-commit: lock-dependencies test
+pre-commit: lock-dependencies format test
 
 .PHONY: rename-project
 rename-project: ## Rename project: 'make rename new-name=<new-name>'

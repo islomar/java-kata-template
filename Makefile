@@ -8,12 +8,16 @@ help:  ## Show this help.
 local-setup: ## Set up the local environment (e.g. install git hooks)
 	scripts/local-setup.sh
 
+.PHONY: build
+build: ## Build
+	./gradlew build
+
 .PHONY: test
 test: ## Run all the tests
 	./gradlew test
 
 .PHONY: lock-dependencies
-lock-dependencies:
+lock-dependencies: ## Lock the dependencies
 	./gradlew dependencies --write-locks
 
 .PHONY: pre-commit

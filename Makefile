@@ -20,6 +20,10 @@ format: ## Check and fix format using Spotless
 test: ## Run all the tests
 	./gradlew test
 
+.PHONY: test-mutation
+test-mutation: ## Run mutation testing
+	./gradlew pitest
+
 .PHONY: test-coverage
 test-coverage: ## Run test coverage with JaCoCo
 	./gradlew build jacocoTestReport

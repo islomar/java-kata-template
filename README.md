@@ -39,6 +39,8 @@
     - Libraries used:
         - JUnit5
         - Hamcrest
+    - Mutation testing with [PiTest](https://pitest.org/)
+        - `make test-mutation`
 - **Spotless** for checking the format and automatically fixing it
     - `make format`
 

@@ -1,4 +1,4 @@
-![Run linters and tests workflow](https://github.com/islomar/java-kata-template/actions/workflows/run-linters-and-tests.yml/badge.svg)
+![Run build and tests workflow](https://github.com/islomar/java-kata-template/actions/workflows/gradle.yml/badge.svg)
 
 # Java template for a kata
 

@@ -21,12 +21,10 @@ lock-dependencies: ## Lock the dependencies
 	./gradlew dependencies --write-locks
 
 .PHONY: pre-commit
-pre-commit: test lock-dependencies
+pre-commit: lock-dependencies test
 
 .PHONY: rename-project
 rename-project: ## Rename project: 'make rename new-name=<new-name>'
-	sed -i 's/java-kata-name/$(new-name)/' docker-compose.yaml
 	sed -i 's/java-kata-name/$(new-name)/' Makefile
-	sed -i 's/java-kata-name/$(new-name)/' pyproject.toml
 	sed -i 's/java-kata-template/$(new-name)/' README.md
 	sed -i 's/java-kata-template/$(new-name)/' Makefile

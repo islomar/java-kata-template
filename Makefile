@@ -23,6 +23,12 @@ test: ## Run all the tests
 .PHONY: test-mutation
 test-mutation: ## Run mutation testing
 	./gradlew pitest
+	@echo
+	@echo "You can see the resulting test coverage report generated under ${PWD}/build/reports/pitest/index.html"
+
+.PHONY: open-test-mutation-report
+open-test-mutation-report: ## Open the existing mutation testing report
+	@open build/reports/pitest/index.html
 
 .PHONY: test-coverage
 test-coverage: ## Run test coverage with JaCoCo
@@ -30,8 +36,8 @@ test-coverage: ## Run test coverage with JaCoCo
 	@echo
 	@echo "You can see the resulting test coverage report generated under ${PWD}/build/reports/jacoco/test/html/index.html"
 
-.PHONY: open-test-coverage
-open-test-coverage: ## Open the existing test coverage report
+.PHONY: open-test-coverage-report
+open-test-coverage-report: ## Open the existing test coverage report
 	@open build/reports/jacoco/test/html/index.html
 
 .PHONY: lock-dependencies
